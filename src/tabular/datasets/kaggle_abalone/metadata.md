@@ -1,0 +1,74 @@
+# Metadata for kaggle_abalone
+
+## name
+
+kaggle_abalone
+
+## prediction_type
+
+regression
+
+## score_name
+
+rmsle
+
+## n_train
+
+90615
+
+## n_test
+
+60411
+
+## total_samples
+
+151026
+
+## train_test_ratio
+
+1.5
+
+## features
+
+**total**: 9
+
+**numeric_features**: 8
+
+**numerical_range_avg**: 11327.82
+
+**categorical_features**: 1
+
+### unique_values_per_categorical
+
+**min**: 3
+
+**max**: 3
+
+**median**: 3
+
+**mode**: 3
+
+## missing_data
+
+**has_missing**: False
+
+**total_missing_values**: 0
+
+**data_density**: 1.0
+
+## target_values
+
+**target_min**: 1
+
+**target_max**: 29
+
+**target_mean**: 9.697
+
+**target_median**: 9.0
+
+**target_std**: 3.176
+
+**target_skewness**: 1.204
+
+**target_kurtosis**: 2.613
+

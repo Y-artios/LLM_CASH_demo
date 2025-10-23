@@ -1,0 +1,62 @@
+# Metadata for kaggle_mental_health
+
+## name
+
+kaggle_mental_health
+
+## prediction_type
+
+binary classification
+
+## score_name
+
+accuracy
+
+## n_train
+
+140700
+
+## n_test
+
+93800
+
+## total_samples
+
+234500
+
+## train_test_ratio
+
+1.5
+
+## features
+
+**total**: 16
+
+**numeric_features**: 9
+
+**numerical_range_avg**: 15642.0
+
+**categorical_features**: 7
+
+### unique_values_per_categorical
+
+**min**: 2
+
+**max**: 65
+
+**median**: 2
+
+**mode**: 2
+
+## missing_data
+
+**has_missing**: True
+
+**total_missing_values**: 718167
+
+**data_density**: 0.81
+
+## target_values
+
+**unique_target_classes_count**: 2
+

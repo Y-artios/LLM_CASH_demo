@@ -1,0 +1,37 @@
+{
+    "dataset": {
+        "name": "kaggle_crab_age",
+        "prediction_type": "regression",
+        "score_name": "mae",
+        "n_train": 74051,
+        "n_test": 49368,
+        "total_samples": 123419,
+        "train_test_ratio": 1.5,
+        "features": {
+            "total": 9,
+            "numeric_features": 8,
+            "numerical_range_avg": 9278.53,
+            "categorical_features": 1,
+            "unique_values_per_categorical": {
+                "min": 3,
+                "max": 3,
+                "median": 3,
+                "mode": 3
+            }
+        },
+        "missing_data": {
+            "has_missing": false,
+            "total_missing_values": 0,
+            "data_density": 1.0
+        },
+        "target_values": {
+            "target_min": 1,
+            "target_max": 29,
+            "target_mean": 9.968,
+            "target_median": 10.0,
+            "target_std": 3.175,
+            "target_skewness": 1.093,
+            "target_kurtosis": 2.296
+        }
+    }
+}

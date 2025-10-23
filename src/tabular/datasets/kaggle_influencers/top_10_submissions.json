@@ -1,0 +1,74 @@
+{
+    "models": {
+        "catboost": {
+            "columns": [
+                "bootstrap_type",
+                "border_count",
+                "grow_policy",
+                "l2_leaf_reg",
+                "learning_rate",
+                "max_depth",
+                "min_data_in_leaf",
+                "n_estimators",
+                "random_strength",
+                "mean_score",
+                "prank"
+            ],
+            "values": [
+                [
+                    "MVS",
+                    254,
+                    "SymmetricTree",
+                    0.1,
+                    0.001,
+                    11,
+                    10,
+                    10,
+                    100.0,
+                    0.85,
+                    21.21
+                ]
+            ]
+        },
+        "lgbm": {
+            "columns": [
+                "boosting_type",
+                "colsample_bynode",
+                "colsample_bytree",
+                "drop_rate",
+                "learning_rate",
+                "max_bin",
+                "max_depth",
+                "min_child_weight",
+                "min_data_in_leaf",
+                "min_split_gain",
+                "n_estimators",
+                "reg_alpha",
+                "reg_lambda",
+                "subsample",
+                "mean_score",
+                "prank"
+            ],
+            "values": [
+                [
+                    "gbdt_0",
+                    0.6,
+                    0.1,
+                    0.2,
+                    0.05,
+                    8192,
+                    40,
+                    1,
+                    20,
+                    0.5,
+                    1000,
+                    0.4,
+                    2.0,
+                    1.0,
+                    0.88,
+                    95.45
+                ]
+            ]
+        }
+    }
+}

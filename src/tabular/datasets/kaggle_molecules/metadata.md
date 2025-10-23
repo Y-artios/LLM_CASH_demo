@@ -1,0 +1,52 @@
+# Metadata for kaggle_molecules
+
+## name
+
+kaggle_molecules
+
+## prediction_type
+
+binary classification
+
+## score_name
+
+nll
+
+## n_train
+
+3751
+
+## n_test
+
+2501
+
+## total_samples
+
+6252
+
+## train_test_ratio
+
+1.5
+
+## features
+
+**total**: 1777
+
+**numeric_features**: 1777
+
+**numerical_range_avg**: 3.06
+
+**categorical_features**: 0
+
+## missing_data
+
+**has_missing**: False
+
+**total_missing_values**: 0
+
+**data_density**: 1.0
+
+## target_values
+
+**unique_target_classes_count**: 2
+

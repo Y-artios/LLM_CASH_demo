@@ -1,0 +1,37 @@
+{
+    "dataset": {
+        "name": "kaggle_mercedes",
+        "prediction_type": "regression",
+        "score_name": "r2",
+        "n_train": 4209,
+        "n_test": 4209,
+        "total_samples": 8418,
+        "train_test_ratio": 1.0,
+        "features": {
+            "total": 377,
+            "numeric_features": 1,
+            "numerical_range_avg": 8417.0,
+            "categorical_features": 376,
+            "unique_values_per_categorical": {
+                "min": 1,
+                "max": 47,
+                "median": 2,
+                "mode": 2
+            }
+        },
+        "missing_data": {
+            "has_missing": false,
+            "total_missing_values": 0,
+            "data_density": 1.0
+        },
+        "target_values": {
+            "target_min": 72.11,
+            "target_max": 265.32,
+            "target_mean": 100.669,
+            "target_median": 99.15,
+            "target_std": 12.679,
+            "target_skewness": 1.207,
+            "target_kurtosis": 7.9
+        }
+    }
+}
