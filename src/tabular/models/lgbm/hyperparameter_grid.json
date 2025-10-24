@@ -1,0 +1,17 @@
+{"lgbm": {
+      "boosting_type": {"dtype": "str", "values": ["gbdt_0", "gbdt_1", "gbdt_5", "gbdt_10", "dart_0", "dart_1", "dart_5", "dart_10", "goss"]},
+      "colsample_bynode": {"dtype": "float", "values": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]},
+      "colsample_bytree": {"dtype": "float", "values": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]},
+      "drop_rate": {"dtype": "float", "values": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]},
+      "learning_rate": {"dtype": "float", "values": [0.0005, 0.001, 0.002, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]},
+      "max_bin": {"dtype": "int", "values": [256, 512, 1024, 2048, 4096, 8192]},
+      "max_depth": {"dtype": "int", "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 100]},
+      "min_child_weight": {"dtype": "int", "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
+      "min_data_in_leaf": {"dtype": "int", "values": [1, 5, 10, 20, 50, 100, 200, 500, 700]},
+      "min_split_gain": {"dtype": "float", "values": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5, 2.0]},
+      "n_estimators": {"dtype": "int", "values": [10, 20, 30, 40, 50, 70, 100, 150, 200, 250, 300, 400, 500, 700, 1000]},
+      "reg_alpha": {"dtype": "float", "values": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 1.0, 2.0, 3.0]},
+      "reg_lambda": {"dtype": "float", "values": [0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0]},
+      "subsample": {"dtype": "float", "values": [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]}
+    }
+}
