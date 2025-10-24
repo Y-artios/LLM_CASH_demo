@@ -1,12 +1,12 @@
-{"catboost": {
-      "bootstrap_type": {"dtype": "str", "values": ["No", "Bernoulli", "MVS", "Bayesian_0", "Bayesian_1", "Bayesian_5", "Bayesian_10", "Bayesian_20", "Bayesian_50"]},
-      "border_count": {"dtype": "int", "values": [32, 64, 128, 254, 512, 1024]},
-      "grow_policy": {"dtype": "str", "values": ["SymmetricTree", "Depthwise", "Lossguide"]},
-      "l2_leaf_reg": {"dtype": "float", "values": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 1.0, 2.0, 3.0, 4.0, 5.0]},
-      "learning_rate": {"dtype": "float", "values": [0.0005, 0.001, 0.002, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]},
-      "max_depth": {"dtype": "int", "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]},
-      "min_data_in_leaf": {"dtype": "int", "values": [1, 5, 10, 20, 50, 100, 200, 500, 700]},
-      "n_estimators": {"dtype": "int", "values": [10, 20, 30, 40, 50, 70, 100, 150, 200, 250, 300, 400, 500, 700, 1000]},
-      "random_strength": {"dtype": "float", "values": [0.0, 1.0, 5.0, 10.0, 20.0, 50.0, 100.0]}
-    }
+{
+    "bootstrap_type": {"dtype": "str", "values": ["No", "Bernoulli", "MVS", "Bayesian_0", "Bayesian_1", "Bayesian_5", "Bayesian_10", "Bayesian_20", "Bayesian_50"]},
+    "border_count": {"dtype": "int", "values": [32, 64, 128, 254, 512, 1024]},
+    "grow_policy": {"dtype": "str", "values": ["SymmetricTree", "Depthwise", "Lossguide"]},
+    "l2_leaf_reg": {"dtype": "float", "values": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 1.0, 2.0, 3.0, 4.0, 5.0]},
+    "learning_rate": {"dtype": "float", "values": [0.0005, 0.001, 0.002, 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]},
+    "max_depth": {"dtype": "int", "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]},
+    "min_data_in_leaf": {"dtype": "int", "values": [1, 5, 10, 20, 50, 100, 200, 500, 700]},
+    "n_estimators": {"dtype": "int", "values": [10, 20, 30, 40, 50, 70, 100, 150, 200, 250, 300, 400, 500, 700, 1000]},
+    "random_strength": {"dtype": "float", "values": [0.0, 1.0, 5.0, 10.0, 20.0, 50.0, 100.0]}
+
 }
