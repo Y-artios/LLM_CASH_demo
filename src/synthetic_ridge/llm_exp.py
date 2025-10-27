@@ -39,7 +39,6 @@ def create_prompt(current_task: "Task", context_tasks: List["Task"]) -> str:
 
 
     if not(context_tasks):
-        # Zero-shot prompt
         new_entry = current_task.metadata(include_lambda=False, task_id="0")
         
         prompt_parts = [
@@ -63,7 +62,7 @@ def create_prompt(current_task: "Task", context_tasks: List["Task"]) -> str:
         ]
         return "\n".join(prompt_parts)
 
-    # Meta-informed prompt
+
     past_entries = [
         t.metadata(include_lambda=True, task_id=f"T{i+1:02d}")
         for i, t in enumerate(context_tasks)
@@ -97,7 +96,6 @@ def create_prompt(current_task: "Task", context_tasks: List["Task"]) -> str:
         json.dumps(new_entry, indent=2),
         "```",
     ]
-
     return "\n".join(prompt_parts)
 
 def llm_call(model: str, prompt: str, temperature: float = 0.0, 
@@ -205,7 +203,7 @@ def run_experiment(
                     # All tasks have the same lambda, just return that value
                     lambda_pred = unique_lambdas[0]
                 else:
-                    clf = LogisticRegression(max_iter=10000)
+                    clf = LogisticRegression(max_iter=1000)
                     X = np.array([t.vectorize() for t in context_tasks])
                     y = np.array(lambdas).astype(str)
                     clf.fit(X, y)
