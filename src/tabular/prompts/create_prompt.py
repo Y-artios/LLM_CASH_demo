@@ -2,6 +2,7 @@ from utils import json_to_markdown
 from typing import Dict, Any, Iterable, List, Union
 from pathlib import Path
 import json
+import os
 
 
 
@@ -135,6 +136,10 @@ def create_user_prompt(current_dataset: str, meta_datasets: Iterable[str], model
             if name != current_dataset:
                 metadata_path = datasets_root / name /"metadata.json"
                 models_path = datasets_root / name /"top_10_submissions.json"
+                
+                if not os.path.isfile(models_path):
+                    print(f"Warning: Missing models file for dataset '{name}': {models_path}. Skipping.")
+                    continue
             
                 with open(metadata_path, "r") as f:
                     meta_json = json.load(f)
