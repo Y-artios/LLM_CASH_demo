@@ -86,6 +86,12 @@ def main():
                         help="Whether to use zero-shot or meta-informed (default: False).")
     parser.add_argument("--llm_model", type=str, default="deepseek-r1",
                         help="LLM model name (default: deepseek-r1).")
+    parser.add_argument("--seed", type=int, default=42,
+                        help="Random seed for reproducibility (default: 42).")
+    parser.add_argument("--models_dir", type=str, default=".",
+                        help="Directory containing models and hyperparameter grids.")
+    parser.add_argument("--datasets_dir", type=str, default=".",
+                        help="Directory containing datasets.")
     parser.add_argument("--temperature", type=float, default=1.0,
                         help="Sampling temperature for LLM calls (default: 1.0).")
     parser.add_argument("--output-dir", type=str, default=".",
@@ -104,18 +110,24 @@ def main():
     root_dir = Path(__file__).resolve().parent
     output_dir = Path(args.output_dir)
 
-    models_root = root_dir / "models"
-    datasets_root = root_dir / "datasets"
+    models_root = Path(args.models_dir) / "models"
+    datasets_root = Path(args.datasets_dir) / "datasets"
     datasets_list = [p.name for p in datasets_root.iterdir() if p.is_dir()]
     models_list = [p.name for p in models_root.iterdir() if p.is_dir()]
 
+    api_key = args.api_key or os.getenv("OPENAI_API_KEY")
 
-    if not args.api_key:
-        api_key = os.getenv("OPENAI_API_KEY")
-    else:
-        api_key = args.api_key
-
-    client = OpenAI(api_key=api_key, base_url=args.base_url)
+    client_kwargs = {}
+    if args.base_url:
+        client_kwargs['base_url'] = args.base_url
+        print(f"  Using base URL: {args.base_url}")
+    if api_key:
+        client_kwargs['api_key'] = api_key
+        print(f"  Using provided API key.")    
+    if not client_kwargs:
+        print("  Warning: No base_url or api_key provided, using default OpenAI config")
+    
+    client = OpenAI(**client_kwargs)
 
 
     if args.zero_shot:

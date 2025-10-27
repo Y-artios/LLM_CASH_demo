@@ -111,19 +111,12 @@ def llm_call(model: str, prompt: str, temperature: float = 0.0,
         api_key: API key for authentication (optional) 
     """
     
-    # Mock implementation for testing without API calls
-    if model == "mock-llm":
-        print(f"  [MOCK] Using mock LLM, temperature: {temperature}")
-        print(f"  Prompt length: {len(prompt)} characters")
-        import random
-        return str(random.choice(LAMBDA_GRID))
     
-    # Real API call
     try:
         import openai
     except ImportError:
         raise ImportError("OpenAI package not installed. Run: pip install openai")
-    
+
     # Configure client
     client_kwargs = {}
     if base_url:
@@ -131,8 +124,7 @@ def llm_call(model: str, prompt: str, temperature: float = 0.0,
         print(f"  Using base URL: {base_url}")
     if api_key:
         client_kwargs['api_key'] = api_key
-        print(f"  Using API key: {api_key[:8]}...")  # Show first 8 chars for security
-    
+        print(f"  Using provided API key.")    
     if not client_kwargs:
         print("  Warning: No base_url or api_key provided, using default OpenAI config")
     
@@ -343,6 +335,9 @@ def main():
                         help="API key for the LLM provider. If omitted, uses environment/default client config.")
 
     args = parser.parse_args()
+    
+    api_key = args.api_key or os.getenv("OPENAI_API_KEY")
+
 
     run_experiment(
         n_rep=args.rep,
@@ -352,7 +347,7 @@ def main():
         d=args.dim,
         log_dir=args.log_dir,
         base_url=args.base_url,
-        api_key=args.api_key,
+        api_key=api_key,
     )
 
 

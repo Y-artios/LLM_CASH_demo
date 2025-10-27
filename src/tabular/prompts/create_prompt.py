@@ -162,7 +162,7 @@ if __name__== "__main__":
 
     models = ["catboost", "lgbm", "xgboost", "skmlp"]
 
-    test_prompt = user_prompt(
+    test_prompt = create_user_prompt(
         current_dataset="kaggle_abalone",  # replace with real one, e.g., "house_prices"
         meta_datasets=["kaggle_blueberry", "kaggle_cirrhosis"],  # or [] for zero-shot
         models_list=models,
