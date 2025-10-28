@@ -90,7 +90,7 @@ The script outputs a **CSV file** containing metrics such as *regret*, *accuracy
 **Run:**
 
 ```bash
-ridge-exp --model mean --rep 100 --k-grid 0,1,2,5,10 --dim 2 --log-dir results/
+ridge-exp --model mean --rep 100 --k-grid 1,2,5,10 --dim 2 --log-dir results/
 ```
 
 or
