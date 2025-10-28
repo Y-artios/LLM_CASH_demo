@@ -1,5 +1,6 @@
 [project]
 name = "llm_cash"
+version = "0.1.0"
 authors = [
   {name = "Youssef Attia El Hili", email = "youssef.attiaeh@gmail.com"},
   {name = "Albert Thomas", email = "albertthomas88@gmail.com"},
