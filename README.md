@@ -215,14 +215,7 @@ See the [LICENSE](LICENSE) file for details.
 If you use this repository in your research, please cite:
 
 ```bibtex
-@article{attia2024llmcash,
-  title   = {LLMs as In-Context Meta-Learners for Model and Hyperparameter Selection},
-  author  = {Youssef Attia El Hili and Albert Thomas and Abdelhakim Benechehab 
-             and Corentin Léger and Malik Tiomoko and Corinne Ancourt 
-             and Balázs Kégl},
-  journal = {arXiv preprint arXiv:2402.03885},
-  year    = {2024}
-}
+@article{}
 ```
 
 ---
