@@ -1,6 +1,17 @@
 [project]
-name = "demo"
-version = "0.1.0"
+name = "LLM_CASH"
+authors = [
+  {name = "Youssef Attia El Hili", email = "youssef.attiaeh@gmail.com"},
+  {name = "Albert Thomas", email = "albertthomas88@gmail.com"},
+  {name = "Abdelhakim Benechehab", email = "abdelhakim.benechehab@gmail.com"},
+  {name = "Corentin Léger", email= ""}
+  {name = "Malik Tiomoko", email=""}
+  {name = "Corinne Ancourt", email=""}
+  {name = "Balázs Kégl", email = "balazs.kegl@gmail.com"},
+]
+maintainers = [
+  {name = "Youssef Attia El Hili", email = "youssef.attiaeh@gmail.com"},
+]
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -12,3 +23,15 @@ dependencies = [
     "scipy>=1.16.2",
     "tqdm>=4.67.1",
 ]
+
+[project.optional-dependencies]
+dev = ['ruff', 'pre-commit', 'black']
+
+[tool.setuptools]
+license-files = ['LICEN[CS]E*', 'COPYING*', 'NOTICE*', 'AUTHORS*']
+
+[tool.setuptools.dynamic]
+readme = { file = ["README.md"] }
+
+[tool.ruff]
+line-length = 88

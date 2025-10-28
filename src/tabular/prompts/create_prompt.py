@@ -1,5 +1,5 @@
 from utils import json_to_markdown
-from typing import Dict, Any, Iterable, List, Union
+from typing import Dict, Any, Iterable, List, Union, Optional
 from pathlib import Path
 import json
 import os
@@ -8,6 +8,7 @@ import os
 
 def create_hyperparameter_grid(
     models_list: Iterable[str],
+    models_dir: Optional[Path],
     filename: str = "hyperparameter_grid.json",
 ) -> Dict[str, Any]:
     """
@@ -23,13 +24,17 @@ def create_hyperparameter_grid(
 
     Args:
         models_list: iterable of model folder names (e.g. ["catboost", "lgbm", "xgboost", "skmlp"]).
+        models_dir: Optional path to the models directory.
         filename: JSON file to read inside each model folder.
 
     Returns:
         dict mapping model name -> its grid dict 
     """
-    
-    models_root = Path(__file__).resolve().parent.parent / "models"
+
+    if not models_dir:
+        models_root = Path(__file__).resolve().parent.parent / "models"
+    else:
+        models_root = models_dir / "models"
 
     combined = {}
 
@@ -80,7 +85,7 @@ def grid_to_models_format(grid: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
     return {"models": models}
 
 
-def create_user_prompt(current_dataset: str, meta_datasets: Iterable[str], models_list: Iterable[str]) -> str:
+def create_user_prompt(current_dataset: str, meta_datasets: Iterable[str], models_list: Iterable[str], datasets_dir:Optional[Path], models_dir:Optional[Path],) -> str:
     """
     Build a textual prompt for the language model that describes the current task,
     past tasks, and the hyperparameter search space.
@@ -102,22 +107,27 @@ def create_user_prompt(current_dataset: str, meta_datasets: Iterable[str], model
         If empty, this triggers the zero-shot setting.
     models_list : Iterable[str]
         List of model names to include in the hyperparameter grid.
+    datasets_dir : Optional[Path]
+        Directory containing "datasets" subdirectory with dataset metadata.
+    models_dir : Optional[Path]
+        Directory containing ""models subdirectory with hyperparameter grids.
 
     Returns
     -------
     str
         The full user prompt containing all information and instructions.
     """
-    hyperparameter_grid = create_hyperparameter_grid(models_list)
+    hyperparameter_grid = create_hyperparameter_grid(models_list, models_dir=models_dir)
     hyperparameter_grid_md = json_to_markdown(hyperparameter_grid)
 
     prompt_text = (
         "Here is the hyperparameter grid:\n"
         f"{hyperparameter_grid_md}\n"
     )
-
-    datasets_root = Path(__file__).resolve().parent.parent / "datasets"
-    print(datasets_root / "metadata.json")
+    if not datasets_dir:
+        datasets_root = Path(__file__).resolve().parent.parent / "datasets"
+    else:
+        datasets_root = datasets_dir / "datasets"
 
 
     with open(datasets_root / current_dataset / "metadata.json", "r") as f:
