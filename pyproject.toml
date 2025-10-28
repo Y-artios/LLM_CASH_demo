@@ -17,9 +17,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "black>=25.9.0",
     "numpy>=2.3.4",
     "openai>=2.6.0",
     "pandas>=2.3.3",
+    "pre-commit>=4.3.0",
+    "ruff>=0.14.2",
     "scikit-learn>=1.7.2",
     "scipy>=1.16.2",
     "tqdm>=4.67.1",
@@ -33,9 +36,6 @@ build-backend = "setuptools.build_meta"
 ridge-exp = "llm_cash.synthetic_ridge.ridge_exp:main"
 generate-models = "llm_cash.tabular.generate_models:main"
 
-[project.optional-dependencies]
-dev = ['ruff', 'pre-commit', 'black']
-
 [tool.setuptools]
 license-files = ['LICEN[CS]E*', 'COPYING*', 'NOTICE*', 'AUTHORS*']
 
@@ -44,3 +44,4 @@ readme = { file = ["README.md"] }
 
 [tool.ruff]
 line-length = 88
+

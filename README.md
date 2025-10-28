@@ -46,7 +46,6 @@ pip install .
 For development:
 
 ```bash
-pip install -e .[dev]
 pre-commit install
 ```
 
@@ -63,8 +62,7 @@ uv sync
 Activate the environment:
 
 ```bash
-source .venv/bin/activate       # macOS / Linux
-.venv\Scripts\Activate.ps1      # Windows
+source .venv/bin/activate       
 ```
 
 For development:
