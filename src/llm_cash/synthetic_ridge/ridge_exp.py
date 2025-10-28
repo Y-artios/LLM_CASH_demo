@@ -8,7 +8,6 @@ from sklearn.linear_model import LogisticRegression
 from tasks import Task, sample_task
 from best_lambda import LAMBDA_GRID
 import numpy as np
-import pandas as pd
 
 baselines = ["mean", "logistic-classifier"]
 
