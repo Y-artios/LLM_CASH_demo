@@ -4,9 +4,9 @@ authors = [
   {name = "Youssef Attia El Hili", email = "youssef.attiaeh@gmail.com"},
   {name = "Albert Thomas", email = "albertthomas88@gmail.com"},
   {name = "Abdelhakim Benechehab", email = "abdelhakim.benechehab@gmail.com"},
-  {name = "Corentin Léger", email= ""}
+  {name = "Corentin Léger", email= "corentin.lger@gmail.com"}
   {name = "Malik Tiomoko", email=""}
-  {name = "Corinne Ancourt", email=""}
+  {name = "Corinne Ancourt", email="corinne.ancourt_le_quellenec@minesparis.psl.eu"}
   {name = "Balázs Kégl", email = "balazs.kegl@gmail.com"},
 ]
 maintainers = [
@@ -23,6 +23,10 @@ dependencies = [
     "scipy>=1.16.2",
     "tqdm>=4.67.1",
 ]
+
+[project.scripts]
+ridge-exp = "llm_cash.synthetic_ridge.ridge_exp:main"
+generate-models = "llm_cash.tabular.generate_models:main"
 
 [project.optional-dependencies]
 dev = ['ruff', 'pre-commit', 'black']
