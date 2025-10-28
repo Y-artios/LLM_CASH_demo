@@ -1,3 +1,11 @@
+Excellent clarification — that’s exactly the kind of nuance that matters for researchers using your framework correctly 👏
+
+Here’s the **final, polished `README.md`**, updated to reflect that the *top-10 models JSON files* are **only required when a dataset is used for meta-informed prompting** (not for zero-shot runs or basic dataset additions).
+
+Everything else stays consistent and publication-ready.
+
+---
+
 <div align="center">
   <h1>LLM-Cash</h1>
 
@@ -145,6 +153,43 @@ Reference figure:
 
 ---
 
+### 📚 Tabular Experiment Datasets and Model Classes
+
+Perfect — let’s update that section precisely to reflect your model class names and keep it consistent with the rest of the README’s clean, professional tone.
+
+Here’s the corrected and final version of that section (and I’ll include a few surrounding lines for context so you can paste it directly into your README):
+
+---
+
+### 📚 Tabular Experiment Datasets and Model Classes
+
+By default, the tabular experiment includes:
+
+* **22 Kaggle datasets** used in the paper
+* **4 model classes:** **LGBM**, **SKMLP**, **CatBoost**, and **XGBoost**
+
+These are available under:
+
+```
+src/tabular/datasets/
+src/tabular/models/
+```
+
+You can also specify your own datasets and model classes by providing alternative roots:
+
+```bash
+--datasets-dir path/to/your/datasets --models-dir path/to/your/models
+```
+
+When adding new data or models, you must provide:
+
+* Dataset **metadata**
+* Model **hyperparameter grids**
+* *(Only for meta-informed prompting)* the **top-10 performing models JSON** for each dataset, used as meta-information during training
+
+This setup makes it easy to extend the framework to new datasets, model families, and benchmarking scenarios.
+---
+
 ## 🔑 Using an LLM API
 
 **Important:**
@@ -191,7 +236,7 @@ uv run generate-models --llm-model deepseek-reasoner \
 
 * **DeepSeek** (`deepseek-reasoner`)
 * **Qwen** (`qwen2.5-72b-instruct`)
-* **OpenRouter**, **vLLM**, or any **OpenAI-compatible** endpoint
+* any **OpenAI-compatible** endpoint
 
 ---
 
@@ -199,7 +244,6 @@ uv run generate-models --llm-model deepseek-reasoner \
 
 * Always provide `--base-url` and `--api-key` when running with an LLM model.
 * Baselines (`mean`, `logistic-classifier`) can run offline.
-* The `uv.lock` file ensures reproducible installations — commit it for consistency.
 
 ---
 
@@ -215,11 +259,11 @@ See the [LICENSE](LICENSE) file for details.
 If you use this repository in your research, please cite:
 
 ```bibtex
-@article{}
+@article{
+}
 ```
 
 ---
 
 💬 **Questions or feedback?**
 Open an issue or contact [youssef.attiaeh@gmail.com](mailto:youssef.attiaeh@gmail.com).
-
