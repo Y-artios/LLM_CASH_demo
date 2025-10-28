@@ -4,7 +4,7 @@ import os
 import re
 from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
-from prompts.create_prompt import create_user_prompt
+from llm_cash.tabular.prompts.create_prompt import create_user_prompt
 
 from openai import OpenAI
 

@@ -2,7 +2,7 @@ import numpy as np
 from dataclasses import dataclass
 from typing import Tuple, List
 from scipy.linalg import toeplitz
-from best_lambda import find_best_lambda
+from llm_cash.synthetic_ridge.best_lambda import find_best_lambda
 
 @dataclass
 class Task:

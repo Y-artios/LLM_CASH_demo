@@ -5,8 +5,8 @@ import pandas as pd
 import re
 from tqdm import tqdm
 from sklearn.linear_model import LogisticRegression
-from tasks import Task, sample_task
-from best_lambda import LAMBDA_GRID
+from llm_cash.synthetic_ridge.tasks import Task, sample_task
+from llm_cash.synthetic_ridge.best_lambda import LAMBDA_GRID
 import numpy as np
 
 baselines = ["mean", "logistic-classifier"]

@@ -1,4 +1,4 @@
-from utils import json_to_markdown
+from llm_cash.tabular.prompts.utils import json_to_markdown
 from typing import Dict, Any, Iterable, List, Union, Optional
 from pathlib import Path
 import json
