@@ -1,11 +1,3 @@
-Excellent clarification — that’s exactly the kind of nuance that matters for researchers using your framework correctly 👏
-
-Here’s the **final, polished `README.md`**, updated to reflect that the *top-10 models JSON files* are **only required when a dataset is used for meta-informed prompting** (not for zero-shot runs or basic dataset additions).
-
-Everything else stays consistent and publication-ready.
-
----
-
 <div align="center">
   <h1>LLM-Cash</h1>
 
