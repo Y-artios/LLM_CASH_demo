@@ -10,8 +10,4 @@ venv/
 .mypy_cache/
 .pytest_cache/
 .coverage
-htmlcov/
-*.pyc
-
-
-*.md
+uv.lock
