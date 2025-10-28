@@ -155,14 +155,6 @@ Reference figure:
 
 ### 📚 Tabular Experiment Datasets and Model Classes
 
-Perfect — let’s update that section precisely to reflect your model class names and keep it consistent with the rest of the README’s clean, professional tone.
-
-Here’s the corrected and final version of that section (and I’ll include a few surrounding lines for context so you can paste it directly into your README):
-
----
-
-### 📚 Tabular Experiment Datasets and Model Classes
-
 By default, the tabular experiment includes:
 
 * **22 Kaggle datasets** used in the paper
