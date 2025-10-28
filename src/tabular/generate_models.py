@@ -158,7 +158,7 @@ def main():
         with open(root_dir / "prompts" / "meta_informed_system_prompt.txt") as f:
             sys_prompt = f.read()
     
-    user_prompt = create_user_prompt(args.dataset, datasets_list, models_list)
+    user_prompt = create_user_prompt(args.dataset, datasets_list, models_list, datasets_dir=datasets_root, models_dir=models_root)
     
     if args.save_prompt:
         with open(output_dir / "user_prompt.txt", "w") as f:
@@ -177,9 +177,13 @@ def main():
         )
     
     if args.save_reasoning:
-        with open(output_dir / "reasoning.txt", "w") as f:
-            f.write(response.choices[0].message.reasoning_content)
-        print("Reasoning saved to 'reasoning.txt'")
+        reasoning = getattr(response.choices[0].message, "reasoning_content", None)
+        if reasoning:
+            with open(output_dir / "reasoning.txt", "w") as f:
+                f.write(reasoning)
+            print("Reasoning saved to 'reasoning.txt'")
+        else:
+            print("No reasoning content found; skipping save.")
 
     models = extract_json(response.choices[0].message.content)
 
