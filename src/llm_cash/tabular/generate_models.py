@@ -117,14 +117,14 @@ def main():
 
 
     models_root = (
-        Path(args.models_dir)
-        if args.models_dir and Path(args.models_dir).exists()
+        Path(args.models_dir) / "models"
+        if args.models_dir and (Path(args.models_dir) / "models").exists()
         else root_dir / "models"
     )
 
     datasets_root = (
-        Path(args.datasets_dir)
-        if args.datasets_dir and Path(args.datasets_dir).exists()
+        Path(args.datasets_dir) / "datasets"
+        if args.datasets_dir and (Path(args.datasets_dir) / "datasets").exists()
         else root_dir / "datasets"
     )
 
