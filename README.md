@@ -68,7 +68,6 @@ source .venv/bin/activate
 For development:
 
 ```bash
-uv sync --dev
 pre-commit install
 ```
 
