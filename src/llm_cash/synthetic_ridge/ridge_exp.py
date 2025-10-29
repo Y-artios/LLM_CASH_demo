@@ -2,6 +2,7 @@ import json, argparse, os
 from typing import List, Optional
 from textwrap import dedent
 import pandas as pd
+import random
 import re
 from tqdm import tqdm
 from sklearn.linear_model import LogisticRegression
@@ -187,26 +188,30 @@ def run_experiment(
 
             if model == "logistic-classifier":
                 if not context_tasks:
-                    raise ValueError("No context tasks provided for logistic prediction.")
-                lambdas = [t.lambda_star()[0] for t in context_tasks]
-                unique_lambdas = np.unique(lambdas)
-                if len(unique_lambdas) == 1:
-                    # All tasks have the same lambda, just return that value
-                    lambda_pred = unique_lambdas[0]
+                    print("no context tasks, picking randomly")
+                    lambda_pred = random.choice(lambda_grid)
                 else:
-                    clf = LogisticRegression(max_iter=1000)
-                    X = np.array([t.vectorize() for t in context_tasks])
-                    y = np.array(lambdas).astype(str)
-                    clf.fit(X, y)
-                    lambda_pred = float(clf.predict(current_task.vectorize().reshape(1, -1))[0])
+                    lambdas = [t.lambda_star()[0] for t in context_tasks]
+                    unique_lambdas = np.unique(lambdas)
+                    if len(unique_lambdas) == 1:
+                        # All tasks have the same lambda, just return that value
+                        lambda_pred = unique_lambdas[0]
+                    else:
+                        clf = LogisticRegression(max_iter=1000)
+                        X = np.array([t.vectorize() for t in context_tasks])
+                        y = np.array(lambdas).astype(str)
+                        clf.fit(X, y)
+                        lambda_pred = float(clf.predict(current_task.vectorize().reshape(1, -1))[0])
 
 
             elif model == "mean":
                 if not context_tasks:
-                    raise ValueError("No context tasks provided for mean prediction.")
-                lambdas = [t.lambda_star()[0] for t in context_tasks]
-                lambda_pred = 10 ** np.mean(np.log10(lambdas))
-                lambda_pred = min(lookup.keys(), key=lambda x: abs(x - lambda_pred))
+                    print("no context tasks, picking randomly")
+                    lambda_pred = random.choice(lambda_grid)
+                else:
+                    lambdas = [t.lambda_star()[0] for t in context_tasks]
+                    lambda_pred = 10 ** np.mean(np.log10(lambdas))
+                    lambda_pred = min(lookup.keys(), key=lambda x: abs(x - lambda_pred))
 
             else:
                 # LLM-based prediction: retry up to 20 times for valid output
