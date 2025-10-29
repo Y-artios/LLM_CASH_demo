@@ -27,7 +27,7 @@ We study two prompting strategies:
 
 Across synthetic and real-world benchmarks, we show that LLMs can exploit dataset metadata to recommend competitive models and hyperparameters without search — highlighting a promising new role for LLMs as lightweight, general-purpose assistants for model and hyperparameter selection.
 
-![main figure](figures/overview.png)
+![main figure](figures/overview_figure.png)
 
 ---
 
