@@ -247,6 +247,7 @@ def run_experiment(
 
     df = pd.DataFrame(records)
     local_path = os.path.join(log_dir, filename)
+    os.makedirs(log_dir, exist_ok=True)
     df.to_csv(local_path, index=False)
     print(f"Saved records to {local_path}")
     return df
