@@ -138,7 +138,7 @@ results/user_prompt.txt      # if --save-prompt used
 results/reasoning.txt        # if --save-reasoning used
 ```
 
-Reference figure:
+Reference figure (with `deepseek-r1`):
 
 
 ![Tabular Kaggle experiment](figures/horizontal_p_rank.png)
