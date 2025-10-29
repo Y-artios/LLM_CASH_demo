@@ -164,6 +164,7 @@ def main():
             f.write(user_prompt)
         print("Reasoning saved to 'reasoning.txt'")
 
+    print("Generating LLM output...")
     response = client.chat.completions.create(
             model=args.llm_model,
             messages=[

@@ -151,11 +151,16 @@ def create_user_prompt(current_task: str, meta_tasks: Iterable[str], models_list
                     print(f"Warning: Missing models file for tasks '{name}': {models_path}. Skipping.")
                     continue
             
-                with open(metadata_path, "r") as f:
-                    meta_json = json.load(f)
+                try:
+                    with open(metadata_path, "r") as f:
+                        meta_json = json.load(f)
+
+                    with open(models_path, "r") as f:
+                        models = json.load(f)
+                except Exception as e:
+                    print(f"Warning: Error loading data for task '{name}': {e}. Skipping.")
+                    continue
                 
-                with open(models_path, "r") as f:
-                    models = json.load(f)
 
                 if task_type in meta_json["dataset"]["prediction_type"]:
                     prompt_text += json_to_markdown(meta_json) + "\n" + str(models) + "\n"
