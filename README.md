@@ -139,6 +139,8 @@ results/reasoning.txt        # if --save-reasoning used
 ```
 
 Reference figure:
+
+
 ![Tabular Kaggle experiment](figures/horizontal_p_rank.png)
 
 ---
