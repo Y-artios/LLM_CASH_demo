@@ -204,13 +204,14 @@ You must always provide a **custom OpenAI-compatible base URL** when using an LL
 ### 3. Example
 
 ```bash
-uv run ridge-exp --model deepseek-reasoner \
+uv run ridge-exp --model qwen2.5-72b-instruct \
                  --base-url https://api.deepseek.com/v1 \
                  --api-key sk-yourapikey
 ```
 
 ```bash
-uv run generate-models --llm-model deepseek-reasoner \
+uv run generate-models --task kaggle_abalone
+                       --llm-model deepseek-reasoner \
                        --base-url https://api.deepseek.com/v1 \
                        --api-key sk-yourapikey
 ```
