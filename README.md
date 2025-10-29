@@ -210,7 +210,7 @@ uv run ridge-exp --model qwen2.5-72b-instruct \
 ```
 
 ```bash
-uv run generate-models --task kaggle_abalone
+uv run generate-models --task kaggle_abalone \
                        --llm-model deepseek-reasoner \
                        --base-url https://api.deepseek.com/v1 \
                        --api-key sk-yourapikey
