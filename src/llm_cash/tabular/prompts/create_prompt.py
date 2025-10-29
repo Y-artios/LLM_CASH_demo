@@ -40,7 +40,7 @@ def create_hyperparameter_grid(
 
     for model in models_list:
         grid_path = models_root / model / filename
-        if not grid_path.is_file():
+        if not grid_path.exists():
             raise FileNotFoundError(f"Missing grid file for '{model}': {grid_path}")
 
         with grid_path.open("r") as f:
@@ -85,7 +85,7 @@ def grid_to_models_format(grid: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
     return {"models": models}
 
 
-def create_user_prompt(current_task: str, meta_tasks: Iterable[str], models_list: Iterable[str], tasks_dir:Optional[Path], models_dir:Optional[Path]) -> str:
+def create_user_prompt(current_task: str, meta_tasks: Iterable[str], models_list: Iterable[str], tasks_dir:Optional[Path]=None, models_dir:Optional[Path]=None) -> str:
     """
     Build a textual prompt for the language model that describes the current task,
     past tasks, and the hyperparameter search space.
