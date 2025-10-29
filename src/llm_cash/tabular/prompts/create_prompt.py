@@ -32,9 +32,9 @@ def create_hyperparameter_grid(
     """
 
     if not models_dir:
-        models_root = Path(__file__).resolve().parent.parent / "models"
+        models_root = Path(__file__).resolve().parent.parent 
     else:
-        models_root = models_dir / "models"
+        models_root = models_dir 
 
     combined = {}
 
@@ -125,9 +125,9 @@ def create_user_prompt(current_dataset: str, meta_datasets: Iterable[str], model
         f"{hyperparameter_grid_md}\n"
     )
     if not datasets_dir:
-        datasets_root = Path(__file__).resolve().parent.parent / "datasets"
+        datasets_root = Path(__file__).resolve().parent.parent 
     else:
-        datasets_root = datasets_dir / "datasets"
+        datasets_root = datasets_dir 
 
 
     with open(datasets_root / current_dataset / "metadata.json", "r") as f:

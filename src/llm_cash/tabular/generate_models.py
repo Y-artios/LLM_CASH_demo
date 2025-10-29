@@ -43,8 +43,7 @@ def main():
     parser.add_argument(
         "--dataset",
         type=str,
-        default=None,
-        help="Name of the dataset to use. If omitted, the LLM will infer context from available datasets."
+        help="Name of the dataset to use."
     )
     parser.add_argument(
         "--zero-shot",
