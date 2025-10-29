@@ -116,14 +116,14 @@ Reference plot:
 
 ### 📊 Tabular Regression / Classification
 
-Generates model configurations for tabular datasets using an LLM.
+Generates model configurations for tabular tasks using an LLM.
 It saves generated model specifications as JSON files.
 
 **Run:**
 
 ```bash
 generate-models --llm-model deepseek-reasoner \
-                --dataset kaggle_abalone \
+                --task kaggle_abalone \
                 --output-dir results/ \
                 --base-url https://api.deepseek.com/v1 \
                 --api-key sk-yourapikey
@@ -144,33 +144,33 @@ Reference figure (with `deepseek-r1`):
 
 ---
 
-### 📚 Tabular Experiment Datasets and Model Classes
+### 📚 Tabular Experiment Tasks and Model Classes
 
 By default, the tabular experiment includes:
 
-* **22 Kaggle datasets** used in the paper
+* **22 Kaggle tasks** used in the paper
 * **4 model classes:** **LGBM**, **SKMLP**, **CatBoost**, and **XGBoost**
 
 These are available under:
 
 ```
-src/tabular/datasets/
+src/tabular/tasks/
 src/tabular/models/
 ```
 
-You can also specify your own datasets and model classes by providing alternative roots:
+You can also specify your own tasks and model classes by providing alternative roots:
 
 ```bash
---datasets-dir path/to/your/datasets --models-dir path/to/your/models
+--tasks-dir path/to/your/tasks --models-dir path/to/your/models
 ```
 
 When adding new data or models, you must provide:
 
-* Dataset **metadata**
+* Task **metadata**
 * Model **hyperparameter grids**
-* *(Only for meta-informed prompting)* the **top-10 performing models JSON** for each dataset, used as meta-information during training
+* *(Only for meta-informed prompting)* the **top-10 performing models JSON** for each task, used as meta-information during training
 
-This setup makes it easy to extend the framework to new datasets, model families, and benchmarking scenarios.
+This setup makes it easy to extend the framework to new tasks, model families, and benchmarking scenarios.
 ---
 
 ## 🔑 Using an LLM API
