@@ -264,29 +264,18 @@ dependencies = [
     { name = "tqdm" },
 ]
 
-[package.optional-dependencies]
-dev = [
-    { name = "black" },
-    { name = "pre-commit" },
-    { name = "ruff" },
-]
-
 [package.metadata]
 requires-dist = [
     { name = "black", specifier = ">=25.9.0" },
-    { name = "black", marker = "extra == 'dev'" },
     { name = "numpy", specifier = ">=2.3.4" },
     { name = "openai", specifier = ">=2.6.0" },
     { name = "pandas", specifier = ">=2.3.3" },
     { name = "pre-commit", specifier = ">=4.3.0" },
-    { name = "pre-commit", marker = "extra == 'dev'" },
     { name = "ruff", specifier = ">=0.14.2" },
-    { name = "ruff", marker = "extra == 'dev'" },
     { name = "scikit-learn", specifier = ">=1.7.2" },
     { name = "scipy", specifier = ">=1.16.2" },
     { name = "tqdm", specifier = ">=4.67.1" },
 ]
-provides-extras = ["dev"]
 
 [[package]]
 name = "mypy-extensions"
