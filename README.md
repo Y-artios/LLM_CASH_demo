@@ -148,7 +148,7 @@ Reference figure (with `deepseek-r1`):
 
 By default, the tabular experiment includes:
 
-* **22 Kaggle tasks** used in the paper
+* **10 Kaggle tasks** (5 for classification and 5 for regression) used in the paper
 * **4 model classes:** **LGBM**, **SKMLP**, **CatBoost**, and **XGBoost**
 
 These are available under:
