@@ -41,14 +41,14 @@ def main():
         description="Generate and validate model configurations using an LLM."
     )
     parser.add_argument(
-        "--dataset",
+        "--task",
         type=str,
-        help="Name of the dataset to use."
+        help="Name of the task to process."
     )
     parser.add_argument(
         "--zero-shot",
         action="store_true",
-        help="Use zero-shot prompting (no dataset metadata). Default: meta-informed mode."
+        help="Use zero-shot prompting (no other tasks in context). Default: meta-informed mode."
     )
     parser.add_argument(
         "--llm-model",
@@ -60,31 +60,31 @@ def main():
         "--seed",
         type=int,
         default=42,
-        help="Random seed for reproducibility. Default: 42."
+        help="Random seed for reproducibility. (Default: 42)"
     )
     parser.add_argument(
         "--models-dir",
         type=str,
         default=None,
-        help="Directory containing model definitions and hyperparameter grids."
+        help="Directory containing 'models/' subdirectory with model definitions and hyperparameter grids. (Default: uses built-in models)"
     )
     parser.add_argument(
-        "--datasets-dir",
+        "--tasks-dir",
         type=str,
         default=None,
-        help="Directory containing datasets."
+        help="Directory containing 'tasks/' subdirectory with tasks and metadata. (Default: uses built-in tasks)"
     )
     parser.add_argument(
         "--output-dir",
         type=str,
         default=".",
-        help="Directory where generated files will be saved. Default: current directory."
+        help="Directory where generated files will be saved. (Default: current directory)"
     )
     parser.add_argument(
         "--temperature",
         type=float,
         default=1.0,
-        help="Sampling temperature for the LLM. Default: 1.0."
+        help="Sampling temperature for the LLM. (Default: 1.0)"
     )
     parser.add_argument(
         "--base-url",
@@ -122,16 +122,16 @@ def main():
         else root_dir / "models"
     )
 
-    datasets_root = (
-        Path(args.datasets_dir) / "datasets"
-        if args.datasets_dir and (Path(args.datasets_dir) / "datasets").exists()
-        else root_dir / "datasets"
+    tasks_root = (
+        Path(args.tasks_dir) / "tasks"
+        if args.tasks_dir and (Path(args.tasks_dir) / "tasks").exists()
+        else root_dir / "tasks"
     )
 
     print(f"Using models directory:   {models_root}")
-    print(f"Using datasets directory: {datasets_root}")
+    print(f"Using tasks directory: {tasks_root}")
     
-    datasets_list = [p.name for p in datasets_root.iterdir() if p.is_dir()] 
+    tasks_list = [p.name for p in tasks_root.iterdir() if p.is_dir()] 
     models_list = [p.name for p in models_root.iterdir() if p.is_dir()]
 
     api_key = args.api_key or os.getenv("OPENAI_API_KEY")
@@ -150,14 +150,14 @@ def main():
 
 
     if args.zero_shot:
-        datasets_list = []
+        tasks_list = []
         with open(root_dir / "prompts" / "zero_shot_system_prompt.txt") as f:
             sys_prompt = f.read()
     else:
         with open(root_dir / "prompts" / "meta_informed_system_prompt.txt") as f:
             sys_prompt = f.read()
     
-    user_prompt = create_user_prompt(args.dataset, datasets_list, models_list, datasets_dir=datasets_root, models_dir=models_root)
+    user_prompt = create_user_prompt(args.task, tasks_list, models_list, tasks_dir=tasks_root, models_dir=models_root)
     
     if args.save_prompt:
         with open(output_dir / "user_prompt.txt", "w") as f:
