@@ -144,7 +144,7 @@ def main():
         client_kwargs['api_key'] = api_key
         print(f"  Using provided API key.")    
     if not client_kwargs:
-        print("  Warning: No base_url or api_key provided, using default OpenAI config")
+        raise Exception("No base_url provided.")
     
     client = OpenAI(**client_kwargs)
 
