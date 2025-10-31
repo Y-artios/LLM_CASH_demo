@@ -1,7 +1,7 @@
 <div align="center">
   <h1>LLM-Cash</h1>
 
-[![paper](https://img.shields.io/static/v1?label=arXiv\&message=2402.03885\&color=B31B1B\&logo=arXiv)](https://arxiv.org/abs/2402.03885)
+[![paper](https://img.shields.io/static/v1?label=arXiv\&message=2510.26510\&color=B31B1B\&logo=arXiv)](https://arxiv.org/abs/2510.26510)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?logo=huggingface\&logoColor=000)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/license/MIT)
 [![Python: 3.12](https://img.shields.io/badge/Python-3.12-blue)]()
@@ -244,7 +244,14 @@ See the [LICENSE](LICENSE) file for details.
 If you use this repository in your research, please cite:
 
 ```bibtex
-@article{
+@misc{hili2025llmsincontextmetalearnersmodel,
+      title={LLMs as In-Context Meta-Learners for Model and Hyperparameter Selection}, 
+      author={Youssef Attia El Hili and Albert Thomas and Malik Tiomoko and Abdelhakim Benechehab and Corentin Léger and Corinne Ancourt and Balázs Kégl},
+      year={2025},
+      eprint={2510.26510},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2510.26510}, 
 }
 ```
 
